@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "globals": {
+    "document": true,
+    "window": true,
+    "process": true,
+    "fetch": true,
+    "alert": true,
+    "localStorage": true,
+    "Headers": true,
+    "FormData": true,
+    "Blob": true,
+    "jest": true
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "react/jsx-filename-extension": 0,
+    "linebreak-style": 0
+  },
+  "env": {
+    "jasmine": true
+  }
+}

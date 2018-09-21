@@ -1,0 +1,86 @@
+{
+  "name": "cot-brand-styleguide",
+  "version": "0.0.0",
+  "description": "COT living style guide",
+  "main": "index.js",
+  "author": "COT",
+  "license": "MIT",
+  "scripts": {
+    "precommit": "lint-staged && yarn test",
+    "test": "jest",
+    "dev": "next -p 3002",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start -p 8000",
+    "octopack": "gulp octopack"
+  },
+  "lint-staged": {
+    "*.json": [
+      "git add"
+    ],
+    "*.{js,css,md}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "resolutions": {
+    "styled-components": "^3.3.0"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^0.11.1",
+    "@mdx-js/mdx": "^0.11.1",
+    "@zeit/next-mdx": "^1.1.0",
+    "core-js": "^2.5.5",
+    "cot-experience": "^0.9.4-3",
+    "grid-styled": "^2.0.0-11",
+    "next": "^6.0.3",
+    "next-redux-wrapper": "^1.3.4",
+    "raf": "^3.4.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0",
+    "remark-emoji": "^2.0.1",
+    "remark-images": "^0.8.1",
+    "seamless-immutable": "^7.1.2",
+    "styled-components": "^3.1.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.44",
+    "@babel/core": "7.0.0-beta.44",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.46",
+    "@babel/polyfill": "7.0.0-beta.44",
+    "@babel/preset-env": "7.0.0-beta.44",
+    "@octopusdeploy/gulp-octo": "^0.0.10",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-styled-components": "^1.3.0",
+    "babel-plugin-transform-define": "^1.3.0",
+    "babel-plugin-transform-define-file": "^1.3.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-redux": "^0.1.7",
+    "enzyme-wait": "^1.0.9",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.5.1",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^3.0.1",
+    "husky": "^0.14.3",
+    "jest": "^22.0.4",
+    "jest-styled-components": "^4.10.0",
+    "lint-staged": "^6.1.1",
+    "next-progressbar": "^0.0.2",
+    "prettier": "^1.10.2",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^16.0.0",
+    "redux-mock-store": "^1.5.1"
+  }
+}
