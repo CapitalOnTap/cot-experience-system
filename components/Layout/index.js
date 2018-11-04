@@ -1,5 +1,6 @@
 import { SideNav } from 'cot-experience';
 import { withRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Footer from '../Footer';
@@ -35,8 +36,8 @@ const ContentContainer = styled.div`
   /*sames as width of sidenav*/
   padding: 3rem;
   /* margin-left: 144px; */
-  margin: 0 0 0 144px;
-  max-width: 1200px;
+  margin: 0 auto;
+  max-width: 640px;
   @media screen and (min-width: 1344px) {
     margin: 0 auto;
   }
@@ -61,7 +62,7 @@ class Layout extends Component {
     this.sideNavRef.toggle();
   };
 
-  buildSidenav = (fetched, isPrepaid) => {
+  buildSidenav = () => {
     const { router } = this.props;
     const currentPathName = router.pathname;
 
@@ -69,7 +70,7 @@ class Layout extends Component {
       {
         title: 'Brand',
         pathname: '/brand',
-        isSelected: currentPathName === '/brand' ,
+        isSelected: currentPathName === '/brand',
         /* you can pass an icon prop */
       },
       {
@@ -84,56 +85,43 @@ class Layout extends Component {
       },
     ];
 
-    
     return navItems;
   };
 
   render() {
-    const {
-      isLoggedIn,
-      customerBalance,
-      creditLimit,
-      children,
-      customerType,
-      addOnProgram,
-      logoutAction,
-    } = this.props;
-
+    const { children } = this.props;
     return (
       <ThemeProvider theme={defaultTheme}>
         <div style={{ position: 'relative' }}>
-          <TopNav
-            onMenuButtonClicked={this.handleOpenSideNav}
-            pageTitle="Dashboard"
-            logOutClick={() => logoutAction()}
+          <TopNav onMenuButtonClicked={this.handleOpenSideNav} pageTitle="Dashboard" />
+          <MobileSideNav
+            innerRef={this.setSidenavRef}
+            logoUrl="/static/images/CoT_logo_portrait.svg"
+            navItems={this.buildSidenav()}
           />
-            <MobileSideNav
-              innerRef={this.setSidenavRef}
-              logoUrl="/static/images/CoT_logo_portrait.svg"
-              navItems={this.buildSidenav(
-              customerType !== '',
-              customerType === 'Prepaid',
-              addOnProgram,
-            )}
-            />
-              <DesktopSideNav
-                isOpen
-                logoUrl="static/images/CoT_logo_portrait.svg"
-                navItems={this.buildSidenav(
-              customerType !== '',
-              customerType === 'Prepaid',
-              addOnProgram,
-            )}
-              />
+          <DesktopSideNav
+            isOpen
+            logoUrl="static/images/CoT_logo_portrait.svg"
+            navItems={this.buildSidenav()}
+          />
 
-                <ContentContainer>
-                  {children}
-                    <Footer />
-                </ContentContainer>
+          <ContentContainer>
+            {children}
+            <Footer />
+          </ContentContainer>
         </div>
       </ThemeProvider>
     );
   }
 }
+
+Layout.defaultProps = {
+  children: [],
+};
+
+Layout.propTypes = {
+  children: PropTypes.node,
+  router: PropTypes.shape({}).isRequired,
+};
 
 export default withRouter(Layout);

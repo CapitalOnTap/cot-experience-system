@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Snapshot Testing It renders" 1`] = `
+<div
+  className="Category__Wrapper-sc-1aaoz62-1 cbNQNy"
+>
+  <div
+    className="Category__ColorBox-sc-1aaoz62-0 kBUVu"
+    color="#27B161"
+  >
+    C
+  </div>
+  <h5
+    className="sc-jTzLTM kVtfjo"
+  >
+    Category name
+  </h5>
+</div>
+`;
