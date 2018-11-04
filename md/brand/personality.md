@@ -19,7 +19,8 @@ We are humble. We know we’re a team that makes awesome software, but we're bal
 <Button>Hello world</Button>
 
 <Example imageUrl="/static/images/new_card.png" />
-#### kfjgfkjfkgjkjgf
+
+<Example imageUrl="/static/images/test.png" color="red" title="Don't"/>
 
 <br/>
 <br/>

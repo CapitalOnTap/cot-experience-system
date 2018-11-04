@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const ImageContainer = styled('div')`
   background: #fff;
   height: 360px;
-  width: 640px;
+  max-width: 100%;
   overflow: hidden;
 `;
 
